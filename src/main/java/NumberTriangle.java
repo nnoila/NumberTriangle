@@ -146,7 +146,7 @@ public class NumberTriangle {
             }
         }
 
-        NumberTriangle top = null;
+        NumberTriangle top = nodes.get(0).get(0);
         return top;
     }
 
