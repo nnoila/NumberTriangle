@@ -111,7 +111,6 @@ public class NumberTriangle {
         InputStream inputStream = NumberTriangle.class.getClassLoader().getResourceAsStream(fname);
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
-
         // will need to return the top of the NumberTriangle,
         // so might want a variable for that.
 
