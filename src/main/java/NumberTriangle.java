@@ -140,7 +140,7 @@ public class NumberTriangle {
         for (int i = nodes.size() - 2; i >= 0; i--) {
             List<NumberTriangle> current = nodes.get(i);
             List<NumberTriangle> below = nodes.get(i + 1);
-            for (int j = 0; j < current.size() - 1; j++) {
+            for (int j = 0; j < current.size(); j++) {
                 current.get(j).setLeft(below.get(j));
                 current.get(j).setRight(below.get(j + 1));
             }
