@@ -114,20 +114,32 @@ public class NumberTriangle {
 
         // will need to return the top of the NumberTriangle,
         // so might want a variable for that.
-        NumberTriangle top = null;
+
+        List<List<NumberTriangle>> nodes = new ArrayList<>();
 
         String line = br.readLine();
         while (line != null) {
 
-            // remove when done; this line is included so running starter code prints the contents of the file
-            System.out.println(line);
-
-            // TODO process the line
-
-            //read the next line
+            String[] parts = line.trim().split("\\s+");
+            List<NumberTriangle> rows = new ArrayList<>();
+            for (String p: parts) {
+                rows.add(new NumberTriangle(Integer.parseInt(p)));
+            }
+            nodes.add(rows);
             line = br.readLine();
         }
         br.close();
+
+        for (int i = nodes.size() - 2; i >= 0; i--) {
+            List<NumberTriangle> current = nodes.get(i);
+            List<NumberTriangle> below = nodes.get(i + 1);
+            for (int j = 0; j < current.size() - 1; j++) {
+                current.get(j).setLeft(below.get(j));
+                current.get(j).setRight(below.get(j + 1));
+            }
+        }
+
+        NumberTriangle top = null;
         return top;
     }
 
