@@ -66,6 +66,24 @@ public class NumberTriangle {
      */
     public void maxSumPath() {
         // for fun [not for credit]:
+        if (this.isLeaf()) {
+            return;
+        }
+        if (left != null) {
+            left.maxSumPath();
+        }
+        else if (right != null) {
+            right.maxSumPath();
+        }
+        int leftSum = (left != null) ? left.getRoot() : Integer.MIN_VALUE;
+        int rightSum = (right != null) ? right.getRoot() : Integer.MIN_VALUE;
+
+        int maxSum = this.root + Math.max(leftSum, rightSum);
+
+        this.setLeft(null);
+        this.setRight(null);
+
+        this.root = maxSum;
     }
 
 
