@@ -114,7 +114,8 @@ public class NumberTriangle {
 
         // will need to return the top of the NumberTriangle,
         // so might want a variable for that.
-        NumberTriangle top = null;
+
+        List<List<NumberTriangle>> nodes = new ArrayList<>();
 
         String line = br.readLine();
         while (line != null) {
