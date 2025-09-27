@@ -120,12 +120,12 @@ public class NumberTriangle {
         String line = br.readLine();
         while (line != null) {
 
-            // remove when done; this line is included so running starter code prints the contents of the file
-            System.out.println(line);
-
-            // TODO process the line
-
-            //read the next line
+            String[] parts = line.trim().split("\\s+");
+            List<NumberTriangle> rows = new ArrayList<>();
+            for (String p: parts) {
+                rows.add(new NumberTriangle(Integer.parseInt(p)));
+            }
+            nodes.add(rows);
             line = br.readLine();
         }
         br.close();
